@@ -1,1 +1,67 @@
-https://www.cryptoice.store/
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عرض محتوى الرابط في منبثقة</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #modal {
+      display: block; /* عرض المنبثقة تلقائيًا عند تحميل الصفحة */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* خلفية داكنة مع شفافية */
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- نافذة منبثقة -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <!-- زر الإغلاق -->
+      <span id="closeModalBtn" class="close-btn">&times;</span>
+      <!-- iframe لعرض الرابط مع خاصية sandbox لتقليل الحظر -->
+      <iframe id="iframe" src="https://www.example.com" width="100%" height="100%" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+    </div>
+  </div>
+
+  <!-- JavaScript لإغلاق النافذة المنبثقة عند النقر على زر الإغلاق -->
+  <script>
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modal = document.getElementById("modal");
+
+    // إغلاق النافذة المنبثقة عند الضغط على زر الإغلاق
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none"; // إخفاء النافذة المنبثقة
+    });
+  </script>
+</body>
+</html>
